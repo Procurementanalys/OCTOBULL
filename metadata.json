@@ -1,0 +1,5 @@
+{
+  "name": "Octobull Special Request System",
+  "description": "A web application for submitting and managing special item requests for stores, with a separate dashboard for administrators to track and update request statuses.",
+  "requestFramePermissions": []
+}
