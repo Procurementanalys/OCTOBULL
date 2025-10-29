@@ -1,10 +1,11 @@
+
 # OCTOBULL Special Request System
 
 This is a web application for submitting and managing special item requests for stores, built with React and TypeScript.
 
 ## Project Setup and Deployment Guide
 
-This guide will walk you through setting up the project on your local machine and deploying it to GitHub Pages.
+This guide will walk you through setting up the project on your local machine, building it for production, and deploying it to GitHub Pages.
 
 ### Prerequisites
 
@@ -30,22 +31,25 @@ This will start a local server, usually at `http://localhost:5173`. You can open
 
 ### 3. Building for Production
 
-To create a production-ready build, which bundles all code into optimized static files inside a `dist` folder, run:
+When you are ready to deploy your application, you need to create a production-ready build. This will bundle all your code into optimized static files (HTML, CSS, JavaScript) inside a `dist` folder.
 
 ```bash
 npm run build
 ```
-This step is handled automatically by the deployment workflow, but you can run it locally to test the build process.
 
-### 4. Deploying to GitHub Pages (Automated)
+After running this command, you will find a new `dist` directory in your project. This is the folder you will deploy.
 
-This project is configured for automated deployment to GitHub Pages using GitHub Actions.
+### 4. Deploying to GitHub Pages
 
-**Step A: Configure `vite.config.ts` (CRITICAL)**
+Follow these steps to host your application on GitHub Pages for free.
 
-Before your first deployment, you **must** set the `base` option in the `vite.config.ts` file to your repository name. This is a one-time setup.
+**Step A: Create a GitHub Repository**
 
-For example, if your GitHub repository URL is `https://github.com/your-username/octobull-app`, you must change the file to:
+If you haven't already, create a new repository on [GitHub](https://github.com/new) and push your project code to it.
+
+**Step B: Configure `vite.config.ts`**
+
+Open the `vite.config.ts` file. You **must** set the `base` option to your repository name. For example, if your GitHub repository URL is `https://github.com/your-username/octobull-app`, you must change the file to:
 
 ```ts
 // vite.config.ts
@@ -59,21 +63,21 @@ export default defineConfig({
 })
 ```
 
-**Step B: Push to GitHub**
+**Step C: Deploy!**
 
-That's it! Simply commit and push your code to the `main` branch of your GitHub repository:
+Now, you can deploy your application by running a single command. This command will first build your project and then push the contents of the `dist` folder to a special `gh-pages` branch on your repository.
 
 ```bash
-git push origin main
+npm run deploy
 ```
 
-The GitHub Actions workflow will automatically trigger. It will build your application and deploy it.
-
-**Step C: Configure GitHub Repository Settings (One-Time Setup)**
+**Step D: Configure GitHub Repository Settings**
 
 1.  Go to your repository on GitHub.
 2.  Click on the "Settings" tab.
 3.  In the left sidebar, click on "Pages".
-4.  Under "Build and deployment", for the "Source", select **"GitHub Actions"**.
+4.  Under "Build and deployment", for the "Source", select "Deploy from a branch".
+5.  Set the branch to `gh-pages` and the folder to `/ (root)`.
+6.  Click "Save".
 
-Your site will become available at `https://<your-username>.github.io/<your-repo-name>/` after the first successful workflow run. You can monitor the progress in the "Actions" tab of your repository.
+Your site should be live at `https://<your-username>.github.io/<your-repo-name>/` within a few minutes.
