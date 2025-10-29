@@ -198,6 +198,18 @@ body::before {
   box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
 }
 
+.btn-ai {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  transition: all 0.3s ease;
+  color: #0c2159; /* A dark blue for contrast */
+}
+
+.btn-ai:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 166, 255, 0.4);
+}
+
+
 /* Table Styling */
 .table-enhanced {
   border-radius: 12px;
